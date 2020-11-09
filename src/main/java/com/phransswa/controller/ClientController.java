@@ -1,7 +1,6 @@
 package com.phransswa.controller;
 
 import com.phransswa.entity.Client;
-import com.phransswa.entity.Voiture;
 import com.phransswa.repository.ClientsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -34,6 +33,19 @@ public class ClientController {
     @PostMapping("/")
     public void postClient(@RequestBody Client client) {
         clientsRepo.save(client);
+    }
+
+    @PutMapping("/{clientId}")
+    public Client updateClient(@PathVariable("clientId") int clientId, @RequestBody Client newClient){
+        return clientsRepo.findById(clientId)
+                .map(client -> {
+                    client.setName(newClient.getName());
+                    return clientsRepo.save(client);
+                })
+                .orElseGet(() -> {
+                    newClient.setId(clientId);
+                    return clientsRepo.save(newClient);
+                });
     }
 
 }

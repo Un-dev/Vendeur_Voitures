@@ -32,4 +32,17 @@ public class VoitureController{
     public void postVoiture(@RequestBody Voiture voiture) {
         voituresRepo.save(voiture);
     }
+
+    @PutMapping("/{voitureId}")
+    public Voiture updateVoiture(@PathVariable("voitureId") int voitureId, @RequestBody Voiture newVoiture){
+        return voituresRepo.findById(voitureId)
+                .map(voiture -> {
+                    voiture.setName(newVoiture.getName());
+                    return voituresRepo.save(voiture);
+                })
+                .orElseGet(() -> {
+                    newVoiture.setId(voitureId);
+                    return voituresRepo.save(newVoiture);
+                });
+    }
 }

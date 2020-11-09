@@ -1,7 +1,6 @@
 package com.phransswa.controller;
 
 import com.phransswa.entity.Vendeur;
-import com.phransswa.entity.Voiture;
 import com.phransswa.repository.VendeursRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -32,5 +31,18 @@ public class VendeurController{
     @PostMapping("/")
     public void postVendeur(@RequestBody Vendeur vendeur) {
         vendeursRepo.save(vendeur);
+    }
+
+    @PutMapping("/{vendeurId}")
+    public Vendeur updateVendeur(@PathVariable("vendeurId") int vendeurId, @RequestBody Vendeur newVendeur){
+        return vendeursRepo.findById(vendeurId)
+                .map(vendeur -> {
+                    vendeur.setName(newVendeur.getName());
+                    return vendeursRepo.save(vendeur);
+                })
+                .orElseGet(() -> {
+                    newVendeur.setId(vendeurId);
+                    return vendeursRepo.save(newVendeur);
+                });
     }
 }

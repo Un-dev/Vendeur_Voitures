@@ -1,6 +1,7 @@
 package com.phransswa.controller;
 
 import com.phransswa.entity.Vendeur;
+import com.phransswa.entity.Voiture;
 import com.phransswa.repository.VendeursRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -28,4 +29,8 @@ public class VendeurController{
         vendeursRepo.deleteById(vendeurId);
     }
 
+    @PostMapping("/")
+    public void postVendeur(@RequestBody Vendeur vendeur) {
+        vendeursRepo.save(vendeur);
+    }
 }

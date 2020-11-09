@@ -29,7 +29,7 @@ public class VoitureController{
     }
 
     @PostMapping("/")
-    public void postVoiture() {
-
+    public void postVoiture(@RequestBody Voiture voiture) {
+        voituresRepo.save(voiture);
     }
 }

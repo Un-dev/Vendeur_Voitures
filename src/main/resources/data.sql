@@ -28,16 +28,16 @@ insert into client (id, name) values (8,'Joseph');
 insert into client (id, name) values (9,'Hugo');
 insert into client (id, name) values (10,'Antoine');
 
-insert into voiture (id, name) values (1, '208');
-insert into voiture (id, name) values (2, '3008');
-insert into voiture (id, name) values (3, 'modele S');
-insert into voiture (id, name) values (4, 'dyane');
-insert into voiture (id, name) values (5, 'clio');
-insert into voiture (id, name) values (6, 'scenic');
-insert into voiture (id, name) values (7, 'multipla');
-insert into voiture (id, name) values (8, 'zeubi');
-insert into voiture (id, name) values (9, 'serie 1');
-insert into voiture (id, name) values (10,'monster truck');
+insert into voiture (id, name, client_id, marque_id) values (1, '208', 1, 1);
+insert into voiture (id, name, client_id, marque_id) values (2, '3008', 2, 1);
+insert into voiture (id, name, client_id, marque_id) values (3, 'modele S', 3, 2);
+insert into voiture (id, name, client_id, marque_id) values (4, 'dyane', 4, 2);
+insert into voiture (id, name, client_id, marque_id) values (5, 'clio', 5, 3);
+insert into voiture (id, name, client_id, marque_id) values (6, 'scenic', 6, 3);
+insert into voiture (id, name, client_id, marque_id) values (7, 'multipla', 7, 4);
+insert into voiture (id, name, client_id, marque_id) values (8, 'zeubi', 8, 4);
+insert into voiture (id, name, client_id, marque_id) values (9, 'lamouche', 9, 5);
+insert into voiture (id, name, client_id, marque_id) values (10,'monster truck', 10, 5);
 
 insert into vend (vendeur_id, marque_id) values (1,1);
 insert into vend (vendeur_id, marque_id) values (2,2);

@@ -40,7 +40,8 @@ public class VendeurController{
     }
 
     @PostMapping("/{vendeurId}/newAdress")
-    public void addAdresse(@RequestBody Adresse adresse) {
+    public void addAdresse(@PathVariable("vendeurId") int vendeurId, @RequestBody Adresse adresse) {
+        adresse.setVendeur_id(vendeurId);
         adressesRepo.save(adresse);
     }
 

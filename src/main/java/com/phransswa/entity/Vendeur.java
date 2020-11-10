@@ -25,7 +25,7 @@ public class Vendeur{
     private List<Marque> marqueList;
 
     @OneToMany
-    @JoinColumn(name = "adresse_id")
+    @JoinColumn(name = "vendeur_id")
     private  List<Adresse> adresses;
 
 }

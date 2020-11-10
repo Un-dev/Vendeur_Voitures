@@ -16,4 +16,7 @@ public class Voiture{
 
     private String name;
 
+    private int client_id;
+    private int marque_id;
+
 }

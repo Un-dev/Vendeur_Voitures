@@ -28,7 +28,7 @@ public class VoitureController{
         voituresRepo.deleteById(voitureId);
     }
 
-    @PostMapping("/")
+    @PostMapping("/client/{clientId}/marque/{marqueId}")
     public void postVoiture(@RequestBody Voiture voiture) {
         voituresRepo.save(voiture);
     }

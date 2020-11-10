@@ -11,11 +11,11 @@ insert into vendeur (id, name) values (3,'Carexpress');
 insert into vendeur (id, name) values (4,'Momo');
 insert into vendeur (id, name) values (5,'OldCar');
 
-insert into adresse (id, adresse) values (1,'38 rue des Poetes');
-insert into adresse (id, adresse) values (2,'5 rue des Barbiers');
-insert into adresse (id, adresse) values (3,'16 av. DeGaulle');
-insert into adresse (id, adresse) values (4,'195 rue du Marché');
-insert into adresse (id, adresse) values (5,'214 bvd. des Chats');
+insert into adresse (id, adresse, vendeur_id) values (1,'38 rue des Poetes', 1);
+insert into adresse (id, adresse, vendeur_id) values (2,'5 rue des Barbiers', 2);
+insert into adresse (id, adresse, vendeur_id) values (3,'16 av. DeGaulle', 3);
+insert into adresse (id, adresse, vendeur_id) values (4,'195 rue du Marché', 4);
+insert into adresse (id, adresse, vendeur_id) values (5,'214 bvd. des Chats', 5);
 
 insert into client (id, name) values (1,'Bob');
 insert into client (id, name) values (2,'Jack');

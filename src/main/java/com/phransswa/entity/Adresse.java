@@ -17,4 +17,6 @@ public class Adresse{
     @Id
     private int id;
     private String adresse;
+
+    private int vendeur_id;
 }

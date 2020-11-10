@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 @Data
@@ -16,7 +18,10 @@ public class Voiture{
 
     private String name;
 
-    private int client_id;
-    private int marque_id;
+    @ManyToOne
+    private Client client;
+
+    @ManyToOne
+    private Marque marque;
 
 }

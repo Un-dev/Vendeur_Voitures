@@ -1,6 +1,8 @@
 package com.phransswa.controller;
 
+import com.phransswa.entity.Adresse;
 import com.phransswa.entity.Vendeur;
+import com.phransswa.repository.AdressesRepo;
 import com.phransswa.repository.VendeursRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +16,9 @@ public class VendeurController{
 
     @Autowired
     private VendeursRepo vendeursRepo;
+
+    @Autowired
+    private AdressesRepo adressesRepo;
 
     @GetMapping("/")
     public List<Vendeur> getVendeurs(){return vendeursRepo.findAll();}
@@ -29,8 +34,14 @@ public class VendeurController{
     }
 
     @PostMapping("/")
-    public void postVendeur(@RequestBody Vendeur vendeur) {
+    public void postVendeur(@RequestBody Vendeur vendeur, @RequestBody Adresse adresse) {
+        adressesRepo.save(adresse);
         vendeursRepo.save(vendeur);
+    }
+
+    @PostMapping("/{vendeurId}/newAdress")
+    public void addAdresse(@RequestBody Adresse adresse) {
+        adressesRepo.save(adresse);
     }
 
     @PutMapping("/{vendeurId}")

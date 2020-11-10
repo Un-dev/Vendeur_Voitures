@@ -1,5 +1,6 @@
 package com.phransswa.controller;
 
+import com.phransswa.entity.Marque;
 import com.phransswa.entity.Voiture;
 import com.phransswa.repository.VoituresRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +29,10 @@ public class VoitureController{
         voituresRepo.deleteById(voitureId);
     }
 
-    @PostMapping("/client/{clientId}/marque/{marqueId}")
-    public void postVoiture(@RequestBody Voiture voiture) {
+    @PostMapping("/client/{clientId}")
+    public void postVoiture(@PathVariable("clientId") int clientId, @RequestBody Voiture voiture, @RequestBody Marque marque) {
+        voiture.setClient_id(clientId);
+        voiture.setMarque_id(marque.getId());
         voituresRepo.save(voiture);
     }
 
